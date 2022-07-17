@@ -1,0 +1,54 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.textblock {
+    border: 1px solid black;
+    padding: 2px;
+    margin: 5px 0 5px 0;
+}
+.points {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0.5rem 0 0.5rem 0;
+}
+.cardNum {
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid black;
+    width: 6.5rem;
+    margin: 3px 0 3px 0;
+}
+@media (max-width: 494px) {
+    .cardNum {
+        width: 4.5rem;
+    }
+}
+.checked {
+    background-color: black;
+    color: white;
+    border: 1px solid grey;
+}
+.column {
+    display: inline-block;
+}
+
+.display-4 {
+    margin-bottom: 1rem;
+}

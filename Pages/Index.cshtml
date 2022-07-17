@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Game";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bingo</h1>
+    @{
+        var drawnNums = new List<BingoBall>();
+        var bingoCardNums = new List<BingoBall>();
+        drawnNums = Model.RandBalls();
+        bingoCardNums = Model.BingoCardNums();
+        Model.CheckBingoCard(bingoCardNums, drawnNums);
+        int i = 0;
+    }
+    <div>
+        @foreach(var ball in bingoCardNums)
+        {
+            @if (i==0) {
+                @: <div class="column">
+            }
+            i++;
+            <div class="cardNum
+@if(ball.Checked) {
+@: checked
+}
+">@ball.Num</div>
+            @if (i==3) {
+                @: </div>
+                i = 0;
+            }
+        }
+    </div>
+    <div class="points">
+        Score: @Model.bingoPoints<br />
+        Filled: @Model.bingoFilled / @(Model.rows*Model.columns)
+    </div>
+    <div class="textblock">
+        Drawn balls:<br />
+        @Model.PrintDrawnBalls(drawnNums)
+    </div>
+</div>

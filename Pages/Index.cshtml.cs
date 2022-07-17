@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Bingo.Pages
 {
@@ -12,11 +11,7 @@ namespace Bingo.Pages
             _logger = logger;
         }
 
-        public void OnGet()
-        {
-
-        }
-        public List<BingoBall> RandBalls(int drawn = 30,int max = 60)
+        public List<BingoBall> RandBalls(int drawn = 30, int max = 60)
         {
             var balls = new List<BingoBall>();
             while (balls.Count < drawn)
@@ -27,22 +22,21 @@ namespace Bingo.Pages
                 tempBall.Id = balls.Count + 1;
                 tempBall.Num = r.Next(1, max);
                 if (!balls.Any(ball => ball.Num == tempBall.Num))
-                balls.Add(tempBall);
+                    balls.Add(tempBall);
             }
             return balls;
         }
+
         public string PrintDrawnBalls(List<BingoBall> drawnBalls)
         {
             var text = "";
-
             for (int i = 0; i < drawnBalls.Count; i++)
             {
                 if (i != 0) text += ", ";
                 //text += i + ", ";
 
-                text +=drawnBalls[i].Num;
+                text += drawnBalls[i].Num;
             }
-
             return text + ".";
         }
 
@@ -67,7 +61,7 @@ namespace Bingo.Pages
                 int matchNum = 0;
                 for (int r = 0; r < rows; r++)
                 {
-                    for (int i=0; i < drawnNums.Count; i++)
+                    for (int i = 0; i < drawnNums.Count; i++)
                     {
                         if (bingoNums[(c * rows) + r].Num == drawnNums[i].Num)
                         {

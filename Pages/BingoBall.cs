@@ -1,6 +1,6 @@
 ﻿namespace Bingo.Pages
 {
-    public class BingoBall:IComparable<BingoBall>
+    public class BingoBall : IComparable<BingoBall>
     {
         public int Id { get; set; }
         public int Num { get; set; }
